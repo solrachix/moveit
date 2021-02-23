@@ -1,29 +1,37 @@
 // import { shade } from 'polished'
 
+// --white: #fff;
+// --background: #f2f3f5;
+// --gray-line: #dcdde0;
+// --text: #666666;
+// --text-highlight: #b3b9ff;
+// --title: #2e384d;
+// --red: #e83f5b;
+// --green: #4cd32b;
+// --blue: #5965e0;
+// --blue-dark: #4953b8;
+// --blue-twitter: #2aa9e0;
 export const LightTheme = {
   title: 'Light',
   colors: {
     primary: {
-      lighter: '#6866FB',
+      lighter: '#2aa9e0',
       light: '#615df0',
-      normal: '#5659EB',
-      dark: '#4046d4',
+      normal: '#5965e0',
+      dark: '#4953b8',
       darker: '#3846D4'
     },
     secondary: '#F25040',
-    tertiary: '#F0F0F7',
 
     background: {
-      lighter: '#2c323f',
-      light: '#232832',
-      normal: '#F0F0F7',
-      dark: '#161a20',
-      darker: '#12151a'
+      light: '#fff',
+      normal: '#f2f3f5',
+      dark: '#dcdde0'
     },
     text: {
-      light: '#D4C2FF',
-      normal: '#9C98A6',
-      dark: '#6A6180'
+      highlight: '#b3b9ff',
+      normal: '#666666',
+      title: '#2e384d'
     },
 
     white: '#f7f7f7',
@@ -31,12 +39,11 @@ export const LightTheme = {
     opaque: '#41414D',
     purple: '#6633cc',
     purpleDark: '#5A4B81',
-    green: '#67e480',
+    green: '#4cd32b',
     orange: '#E89E64',
     pink: '#FF79C6',
     blue: '#2436e8' /** #5659eb */,
-    lightBlue: '#3AC5FF',
-    red: '#E96379',
+    red: '#e83f5b',
     yellow: '#e7de79'
   }
 }
@@ -52,19 +59,16 @@ export const DarkTheme = {
       darker: '#3846D4'
     },
     secondary: '#E02041',
-    tertiary: '#2B303A',
 
     background: {
-      lighter: '#1C2028',
       light: '#171719',
       normal: '#121214',
-      dark: '#0E0E10',
-      darker: '#000'
+      dark: '#0E0E10'
     },
     text: {
-      light: '#fff',
+      highlight: '#fff',
       normal: '#7B7B7C',
-      dark: '#6A6180'
+      title: '#6A6180'
     },
 
     white: '#f7f7f7',
@@ -72,12 +76,11 @@ export const DarkTheme = {
     opaque: '#41414D',
     purple: '#6633cc',
     purpleDark: '#5A4B81',
-    green: '#67e480',
+    green: '#4cd32b',
     orange: '#E89E64',
     pink: '#FF79C6',
     blue: '#2436e8' /** #5659eb */,
-    lightBlue: '#3AC5FF',
-    red: '#E96379',
-    yellow: '#FFC500'
+    red: '#e83f5b',
+    yellow: '#e7de79'
   }
 }
