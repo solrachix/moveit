@@ -19,7 +19,7 @@ export default createGlobalStyle`
     overflow-x: visible;
   }
 
-  @media (max-width: 1088px){
+  @media (max-width: 1080px){
     html {
       font-size: 93.75%;
     }
@@ -37,11 +37,11 @@ export default createGlobalStyle`
     outline: none;
 
     text-decoration: none;
-    font: 400 1rem 'Nunito', 'Roboto', sans-serif;
+    font: 400 1rem 'Inter', 'Roboto', sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {
     color: ${({ theme }) => theme.colors.text.normal};
-    font-family: 'Nunito', 'Roboto', sans-serif;
+    font-family: 'Inter', 'Roboto', sans-serif;
   }
   button {
     cursor: pointer;
