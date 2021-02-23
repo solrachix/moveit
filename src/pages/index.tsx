@@ -1,5 +1,12 @@
-export default function Home() {
+import ExperienceBar from './components/ExperienceBar'
+import { Container } from '@/styles/pages/Home'
+
+const App: React.FC = () => {
   return (
-    <h1>aaa</h1>
+    <Container>
+      <ExperienceBar />
+    </Container>
   )
 }
+
+export default App
