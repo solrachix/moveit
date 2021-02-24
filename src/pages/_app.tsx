@@ -3,7 +3,7 @@ import { AppProps } from 'next/app'
 import { PageTransition } from '@/components/PageTransition'
 import Layout from '@/components/Layout'
 
-import Context from '@/context'
+import Context from '@/contexts'
 
 export default function App({
   Component: SsrComponent,

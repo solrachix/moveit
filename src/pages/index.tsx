@@ -5,6 +5,7 @@ import Profile from '@/components/Profile'
 import CompletedChallenges from '@/components/CompletedChallenges'
 import CountDown from '@/components/CountDown'
 import SEO from '@/components/SEO'
+import ChallengeBox from '@/components/ChallengeBox'
 
 const App: React.FC = () => {
   return (
@@ -19,7 +20,9 @@ const App: React.FC = () => {
           <CompletedChallenges />
           <CountDown />
         </div>
-        <div></div>
+        <div>
+          <ChallengeBox />
+        </div>
       </section>
     </Container>
   )
