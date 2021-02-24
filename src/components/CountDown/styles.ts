@@ -64,8 +64,25 @@ export const Container = styled.div`
 
     transition: background-color 0.2s;
 
-    &:hover {
+    &:not(:disabled):hover {
       background: ${props => props.theme.colors.primary.dark};
+    }
+
+    &.active {
+      background: ${props => props.theme.colors.background.light};
+      color: ${props => props.theme.colors.text.normal};
+
+      &:hover {
+        background: ${props => props.theme.colors.red};
+        color: ${props => props.theme.colors.white};
+      }
+    }
+    &:disabled {
+      background: ${props => props.theme.colors.background.light};
+      color: ${props => props.theme.colors.text.normal};
+      border-bottom: 3px solid ${props => props.theme.colors.green};
+
+      cursor: not-allowed;
     }
   }
 `
