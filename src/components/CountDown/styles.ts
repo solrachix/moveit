@@ -25,7 +25,7 @@ export const Container = styled.div`
       justify-content: space-evenly;
 
       background: ${props => props.theme.colors.background.light};
-      box-shadow: rgba(0, 0, 0, 0.05);
+      box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
       border-radius: 5px;
       font-size: 8.5rem;
       text-align: center;

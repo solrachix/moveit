@@ -16,5 +16,10 @@ export const Container = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: 6.25rem;
     align-content: center;
+
+    @media (max-width: 720px) {
+      grid-template-columns: 100%;
+      grid-auto-rows: 1fr 1fr;
+    }
   }
 `
