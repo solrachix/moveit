@@ -48,38 +48,38 @@ export const Container = styled.div`
       p {
         line-height: 1.5;
       }
+    }
 
-      footer {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
+    footer {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
 
-        button {
-          height: 3rem;
+      button {
+        height: 3rem;
 
-          display: flex;
-          align-items: center;
-          justify-content: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-          border: 0;
-          border-radius: 5px;
+        border: 0;
+        border-radius: 5px;
 
-          color: ${props => props.theme.colors.white};
+        color: ${props => props.theme.colors.white};
 
-          font-size: 1rem;
-          font-weight: 600;
+        font-size: 1rem;
+        font-weight: 600;
 
-          transition: filter 0.2s;
+        transition: filter 0.2s;
 
-          &:hover {
-            filter: brightness(0.9);
-          }
-          &.challengeFailedButton {
-            background: ${props => props.theme.colors.red};
-          }
-          &.challengeSucceededButton {
-            background: ${props => props.theme.colors.green};
-          }
+        &:hover {
+          filter: brightness(0.9);
+        }
+        &.challengeFailedButton {
+          background: ${props => props.theme.colors.red};
+        }
+        &.challengeSucceededButton {
+          background: ${props => props.theme.colors.green};
         }
       }
     }
