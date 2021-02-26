@@ -32,6 +32,7 @@ export function CountDownProvider({ children }: CountDownProviderProps) {
 
   const minutes = Math.floor(time / 60)
   const seconds = time % 60
+
   function startCountdown() {
     setIsActive(true)
   }

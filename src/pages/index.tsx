@@ -1,3 +1,5 @@
+import { GetServerSideProps } from 'next'
+
 import { Container } from '@/styles/pages/Home'
 
 import ExperienceBar from '@/components/ExperienceBar'
@@ -27,5 +29,13 @@ const App: React.FC = () => {
     </Container>
   )
 }
+
+// export const getServerSideProps: GetServerSideProps = async ctx => {
+//   const { level, currentExperience, challengesCompleted } = ctx.req.cookies
+
+//   return {
+//     props: { user: { level, currentExperience, challengesCompleted } }
+//   }
+// }
 
 export default App
