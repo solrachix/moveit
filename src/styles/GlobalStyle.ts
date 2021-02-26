@@ -6,6 +6,7 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: background-color 0.2s linear;
   }
   html, body, #__next {
     min-width: 100vw;

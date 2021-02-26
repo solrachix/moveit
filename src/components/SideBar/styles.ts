@@ -1,11 +1,16 @@
 import styled from 'styled-components'
+import { rgba } from 'polished'
 
 export const Container = styled.div`
   position: fixed;
   width: 90px;
   height: 100%;
 
-  background: ${props => props.theme.colors.background.light};
+  background: linear-gradient(
+    180deg,
+    ${props => rgba(props.theme.colors.background.light, 1)},
+    ${props => rgba(props.theme.colors.background.light, 0)}
+  );
   box-shadow: 0 0 60px rgba(0, 0, 0, 0.1);
 
   display: grid;
@@ -61,10 +66,24 @@ export const Container = styled.div`
     }
   }
 
+  button {
+    background: transparent;
+    border: none;
+
+    img {
+      filter: ${({ theme: { title } }) =>
+        title === 'Light'
+          ? 'invert(0) opacity(0.8)'
+          : 'invert(1) opacity(0.8)'};
+    }
+  }
+
   @media (max-width: 520px) {
     width: 100%;
     height: 70px;
     bottom: 0%;
+
+    background: ${props => props.theme.colors.background.light};
 
     display: flex;
 

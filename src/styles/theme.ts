@@ -52,23 +52,23 @@ export const DarkTheme = {
   title: 'Dark',
   colors: {
     primary: {
-      lighter: '#6866FB',
-      light: '#5659EB',
-      normal: '#4347FE',
-      dark: '#494CDB',
+      lighter: '#2aa9e0',
+      light: '#615df0',
+      normal: '#5965e0',
+      dark: '#4953b8',
       darker: '#3846D4'
     },
     secondary: '#E02041',
 
     background: {
-      light: '#171719',
-      normal: '#121214',
-      dark: '#0E0E10'
+      light: '#181818',
+      normal: '#0D0D0D',
+      dark: '#111'
     },
     text: {
-      highlight: '#fff',
-      normal: '#7B7B7C',
-      title: '#6A6180'
+      highlight: '#b3b9ff',
+      normal: '#444444',
+      title: '#555'
     },
 
     white: '#f7f7f7',

@@ -34,10 +34,12 @@ export const Container = styled.div`
         flex: 1;
         margin: 0;
         &:first-child {
-          border-right: 1px solid #f0f1f3;
+          border-right: 1px solid
+            ${props => props.theme.colors.background.normal};
         }
         &:last-child {
-          border-left: 1px solid #f0f1f3;
+          border-left: 1px solid
+            ${props => props.theme.colors.background.normal};
         }
       }
     }

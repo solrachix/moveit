@@ -1,6 +1,9 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+
+import { useGlobal } from '@/contexts/Global'
+
 import { Container } from './styles'
 
 const routes = [
@@ -15,6 +18,7 @@ const routes = [
 ]
 const SideBar: React.FC = () => {
   const router = useRouter()
+  const { handleThemeChanges } = useGlobal()
 
   return (
     <Container className="sidebar">
@@ -32,6 +36,10 @@ const SideBar: React.FC = () => {
           </Link>
         ))}
       </div>
+
+      <button type="button" onClick={handleThemeChanges}>
+        <img className="logo" src="/icons/sun.svg" />
+      </button>
     </Container>
   )
 }
