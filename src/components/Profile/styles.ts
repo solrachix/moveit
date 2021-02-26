@@ -1,12 +1,15 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
+  width: 100%;
+  height: 4.5rem;
   display: flex;
   align-items: center;
+  font-size: 1rem;
 
   img {
-    width: 4.5rem;
-    height: 4.5rem;
+    /* width: 4.5rem; */
+    height: 100%;
     border-radius: 50%;
   }
 
