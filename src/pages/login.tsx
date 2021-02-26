@@ -1,8 +1,15 @@
-import { ReactElement } from 'react'
+import { ReactElement, useEffect } from 'react'
+
+import { useGlobal } from '@/contexts/Global'
 
 import { Container, Form } from '@/styles/pages/Login'
-
 export default function Login(): ReactElement {
+  const { NavBar } = useGlobal()
+
+  useEffect(() => {
+    NavBar.set(false)
+  }, [])
+
   return (
     <Container>
       <Form>
