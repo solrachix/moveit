@@ -6,4 +6,5 @@ export default styled.div`
   grid-area: content;
 
   overflow: auto;
+  overflow-x: hidden;
 `

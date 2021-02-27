@@ -18,8 +18,8 @@ interface GlobalContextData {
 const GlobalContext = createContext<GlobalContextData>({} as GlobalContextData)
 
 export const GlobalProvider: React.FC = ({ children }) => {
-  const [enableNavBar, setEnableNavBar] = useState(true)
-  const [theme, setTheme] = useState(LightTheme)
+  const [enableNavBar, setEnableNavBar] = useState(false)
+  const [theme, setTheme] = useState(DarkTheme)
 
   const NavBar = {
     activated: enableNavBar,

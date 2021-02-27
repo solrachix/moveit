@@ -21,9 +21,11 @@ export const PageTransition = ({ children, ...props }) => {
   return (
     <>
       {transitions.map(({ item, props: style, key }) => {
-        const { Component, props } = item.components
-          ? item.components[item.pathname]
-          : {}
+        if (!item.components) {
+          return null
+        }
+
+        const { Component, props } = item.components[item.pathname]
 
         return (
           <Page key={key} style={style}>

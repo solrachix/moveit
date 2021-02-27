@@ -61,7 +61,7 @@ export const DarkTheme = {
     secondary: '#E02041',
 
     background: {
-      light: '#181818',
+      light: '#181818', // #222A30
       normal: '#0D0D0D',
       dark: '#111'
     },
@@ -76,7 +76,7 @@ export const DarkTheme = {
     opaque: '#41414D',
     purple: '#6633cc',
     purpleDark: '#5A4B81',
-    green: '#4cd32b',
+    green: '#51B56D',
     orange: '#E89E64',
     pink: '#FF79C6',
     blue: '#2436e8' /** #5659eb */,
