@@ -3,6 +3,7 @@ import Head from 'next/head'
 interface SEOProps {
   title: string
   description?: string
+  keywords?: string[]
   image?: string
   shouldExcludeTitleSuffix?: boolean
   shouldIndexPage?: boolean
@@ -11,6 +12,7 @@ interface SEOProps {
 export default function SEO({
   title,
   description,
+  keywords,
   image,
   shouldExcludeTitleSuffix = false,
   shouldIndexPage = true
@@ -25,10 +27,16 @@ export default function SEO({
       <title>{pageTitle}</title>
       {description && <meta name="description" content={description} />}
       {pageImage && <meta name="image" content={pageImage} />}
+      {keywords && (
+        <meta name="keywords" content={keywords.slice().join(', ')} />
+      )}
 
       {!shouldIndexPage && <meta name="robots" content="noindex,nofollow" />}
 
+      <link rel="apple-touch-icon" href="/apple-icon.png" />
       <link rel="shortcut icon" href="favicon.png" type="image/png" />
+
+      <link rel="manifest" href="/manifest.json" />
 
       <meta httpEquiv="x-ua-compatible" content="IE=edge,chrome=1" />
       <meta name="MobileOptimized" content="320" />
@@ -59,6 +67,12 @@ export default function SEO({
       <meta name="twitter:image:alt" content="Thumbnail" />
       <meta name="twitter:image:width" content="1200" />
       <meta name="twitter:image:height" content="620" />
+
+      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+      <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+      />
     </Head>
   )
 }
