@@ -3,13 +3,19 @@ const withSvgr = require('next-svgr')
 const withPWA = require('next-pwa')
 
 module.exports = withPlugins([
-  {future: { webpack5: true }},
+  {
+    distDir: 'build',
+    future: { webpack5: true },
+    typescript: {
+      // !! WARN !!
+      ignoreBuildErrors: true,
+    },
+  },
   [withPWA, { 
     pwa: {
       dest: 'public'
     }
   }],
-  withSvgr,
-  { distDir: 'build' }
+  withSvgr
   // your other plugins here
 ])
