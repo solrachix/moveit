@@ -1,4 +1,11 @@
-import React, { createContext, useState, useContext, useCallback } from 'react'
+import React, {
+  createContext,
+  useState,
+  useContext,
+  useEffect,
+  useCallback
+} from 'react'
+import { useSession } from 'next-auth/client'
 
 import { ThemeProvider } from 'styled-components'
 
@@ -6,8 +13,15 @@ import GlobalStyle from '@/styles/GlobalStyle'
 import { DarkTheme, LightTheme } from '@/styles/theme'
 
 import SideBar from '@/components/SideBar'
+import { useRouter } from 'next/router'
 
+interface User {
+  name?: string | null
+  email?: string | null
+  image?: string | null
+}
 interface GlobalContextData {
+  user: User
   NavBar: {
     activated: boolean
     set(prop: boolean): void
@@ -17,9 +31,15 @@ interface GlobalContextData {
 
 const GlobalContext = createContext<GlobalContextData>({} as GlobalContextData)
 
+const privateRoutes = ['/dashboard', '/leaderboard']
+const publicRoutes = ['/test', '/login']
+
 export const GlobalProvider: React.FC = ({ children }) => {
+  const router = useRouter()
+  const [session, loading] = useSession()
   const [enableNavBar, setEnableNavBar] = useState(false)
   const [theme, setTheme] = useState(DarkTheme)
+  const [user, setUser] = useState<User | null>(null)
 
   const NavBar = {
     activated: enableNavBar,
@@ -33,12 +53,24 @@ export const GlobalProvider: React.FC = ({ children }) => {
     setTheme(theme.title === 'Light' ? DarkTheme : LightTheme)
   }
 
+  useEffect(() => {
+    // console.log(router.pathname, loading)
+    if (publicRoutes.includes(router.pathname) && session) {
+      router.push('/dashboard')
+      setUser(session.user)
+    } else if (privateRoutes.includes(router.pathname) && !session) {
+      setEnableNavBar(false)
+      router.push('/')
+    } else {
+    }
+  }, [router.pathname, session])
+
   return (
-    <GlobalContext.Provider value={{ NavBar, handleThemeChanges }}>
+    <GlobalContext.Provider value={{ user, NavBar, handleThemeChanges }}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         {enableNavBar && <SideBar />}
-        {children}
+        {!loading && children}
       </ThemeProvider>
     </GlobalContext.Provider>
   )
@@ -50,3 +82,19 @@ export function useGlobal(): GlobalContextData {
 
   return context
 }
+
+// fetch('/api/user', {
+//   method: 'POST',
+//   headers: {
+//     Accept: 'application/json',
+//     'Content-Type': 'application/json'
+//   },
+//   body: JSON.stringify({ email: session.user.email })
+// })
+//   .then(R => R.json())
+//   .then(response => {
+//     console.log(response)
+//   })
+//   .catch(error => {
+//     console.log(error)
+//   })

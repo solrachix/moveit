@@ -1,19 +1,26 @@
-import React from 'react'
+import { ReactNode } from 'react'
+import { Provider as AuthProvider } from 'next-auth/client'
 
 import { RouterContextProvider } from '@/hooks/useRouter'
 import { ChallengesProvider } from './ChallengesContext'
 import { CountDownProvider } from './CountDownContext'
 import { GlobalProvider } from './Global'
 
-const AppProvider: React.FC = ({ children }) => {
+interface Props {
+  children: ReactNode
+  ssrPageProps: unknown
+}
+function AppProvider({ children, ssrPageProps }: Props) {
   return (
-    <GlobalProvider>
-      <RouterContextProvider>
-        <ChallengesProvider>
-          <CountDownProvider>{children}</CountDownProvider>
-        </ChallengesProvider>
-      </RouterContextProvider>
-    </GlobalProvider>
+    <AuthProvider session={ssrPageProps.session}>
+      <GlobalProvider>
+        <RouterContextProvider>
+          <ChallengesProvider>
+            <CountDownProvider>{children}</CountDownProvider>
+          </ChallengesProvider>
+        </RouterContextProvider>
+      </GlobalProvider>
+    </AuthProvider>
   )
 }
 

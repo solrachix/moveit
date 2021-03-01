@@ -66,15 +66,28 @@ export const Container = styled.div`
     }
   }
 
-  button {
-    background: transparent;
-    border: none;
+  .bottomButtons {
+    width: 100%;
+    padding: 0.4rem;
 
-    img {
-      filter: ${({ theme: { title } }) =>
-        title === 'Light'
-          ? 'invert(0) opacity(0.8)'
-          : 'invert(1) opacity(0.8)'};
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+      width: 40%;
+      background: transparent;
+      border: none;
+
+      img {
+        width: 100%;
+
+        filter: ${({ theme: { title } }) =>
+          title === 'Light'
+            ? 'invert(0) opacity(0.8)'
+            : 'invert(1) opacity(0.8)'};
+      }
     }
   }
 
