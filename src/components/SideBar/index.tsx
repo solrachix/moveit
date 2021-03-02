@@ -18,7 +18,6 @@ const routes = [
   }
 ]
 const SideBar: React.FC = () => {
-  // const session = useSession()
   const router = useRouter()
   const { handleThemeChanges } = useGlobal()
 
@@ -31,7 +30,7 @@ const SideBar: React.FC = () => {
 
       <div className="icons">
         {routes.map(props => (
-          <Link key={props.route} href={props.route}>
+          <Link key={props.route} href={props.route} prefetch>
             <a className={router.pathname === props.route ? 'actived' : ''}>
               <img
                 src={`/icons/${props.icon}`}

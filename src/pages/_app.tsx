@@ -10,7 +10,7 @@ export default function App({
   pageProps: ssrPageProps
 }: AppProps) {
   return (
-    <Context>
+    <Context ssrPageProps={ssrPageProps}>
       <Layout>
         <PageTransition>
           {({ Component, pageProps }) => {
@@ -21,6 +21,7 @@ export default function App({
             )
           }}
         </PageTransition>
+        {/* <SsrComponent {...ssrPageProps} /> */}
       </Layout>
     </Context>
   )

@@ -1,12 +1,21 @@
-import SEO from '@/components/SEO'
+import React, { createRef, useEffect } from 'react'
+import Link from 'next/link'
 
+import useResize from '@/hooks/useResize'
+
+import SEO from '@/components/SEO'
+import Footer from '@/components/Footer'
 import { Container } from '@/styles/pages/Home'
 
-import React from 'react'
-
 const App: React.FC = () => {
+  const containerRef = createRef<HTMLDivElement>()
+  const width = useResize(containerRef)
+
+  useEffect(() => {
+    console.log(width)
+  }, [width])
   return (
-    <Container>
+    <Container ref={containerRef}>
       <SEO title="Inicio" />
       <img className="ellipse" src="/icons/ellipse.svg" />
       {/* <div className="test"></div> */}
@@ -17,7 +26,9 @@ const App: React.FC = () => {
             Move.it
           </div>
 
-          <button type="button">Login</button>
+          <Link href="/login">
+            <a className="button">Login</a>
+          </Link>
         </header>
 
         <section>
@@ -53,7 +64,10 @@ const App: React.FC = () => {
 
               <ul>
                 <li>
-                  <img className="purple" src="/icons/speedometer.svg" />
+                  <div
+                    className="icon purple"
+                    style={{ backgroundImage: '/icons/speedometer.svg' }}
+                  />
                   <h3>Gerenciar e controlar seu tempo</h3>
                   <p>
                     Com a técnica Pomodoro, você vai assumir o controle do seu
@@ -61,7 +75,10 @@ const App: React.FC = () => {
                   </p>
                 </li>
                 <li>
-                  <img className="blue" src="/icons/trophy.svg" />
+                  <div
+                    className="icon blue"
+                    style={{ backgroundImage: '/icons/trophy.svg' }}
+                  />
                   <h3>Manter a motivação</h3>
                   <p>
                     Quando você se aproxima do final de um pomodoro e seu
@@ -70,7 +87,10 @@ const App: React.FC = () => {
                   </p>
                 </li>
                 <li>
-                  <img className="green" src="/icons/walk.svg" />
+                  <div
+                    className="icon green"
+                    style={{ backgroundImage: '/icons/walk.svg' }}
+                  />
                   <h3>É o processo, não o resultado</h3>
                   <p>
                     Outra grande vantagem da técnica Pomodoro é que ela mantém o
@@ -83,6 +103,8 @@ const App: React.FC = () => {
             </div>
           </div>
         </section>
+
+        <Footer />
       </main>
     </Container>
   )

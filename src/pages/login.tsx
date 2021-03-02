@@ -1,7 +1,15 @@
 import { ReactElement, useEffect } from 'react'
 
+import { signIn, signOut, useSession } from 'next-auth/client'
+
 import { Container, Form } from '@/styles/pages/Login'
 export default function Login(): ReactElement {
+  const [session, loading] = useSession()
+
+  function handleLogin() {
+    signIn('github')
+  }
+
   return (
     <Container>
       <Form>
@@ -15,12 +23,17 @@ export default function Login(): ReactElement {
             <p>Faça login com seu github para começar</p>
           </span>
 
-          <div className="inputContainer">
-            <input type="text" placeholder="Username" />
-            <button type="submit">
+          <button
+            className="inputContainer"
+            type="button"
+            disabled={loading}
+            onClick={handleLogin}
+          >
+            <div>{loading ? 'carregando...' : 'Entrar'}</div>
+            <div>
               <img src="/icons/arrowRight.svg" alt="avançar" />
-            </button>
-          </div>
+            </div>
+          </button>
         </div>
       </Form>
     </Container>

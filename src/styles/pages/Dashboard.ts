@@ -11,6 +11,7 @@ export const Container = styled.div`
 
   section {
     flex: 1;
+    margin-top: 2rem;
 
     display: grid;
     grid-template-columns: 1fr 1fr;

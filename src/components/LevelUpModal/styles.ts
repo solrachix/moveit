@@ -20,37 +20,68 @@ export const Container = styled.div`
   position: relative;
   width: 100%;
   max-width: 400px;
-  padding: 2rem 4rem;
 
   background: ${props => props.theme.colors.background.light};
   border-radius: 5px;
   box-shadow: 0 0 60px rgba(0, 0, 0, 0.1);
-  text-align: center;
 
-  header {
-    font-size: 8.75rem;
-    font-weight: 600;
+  > div {
+    width: 100%;
+    padding: 2rem 4rem;
 
-    background: url('/icons/levelup.svg') no-repeat center;
-    background-size: contain;
-    color: ${props => props.theme.colors.primary.normal};
+    text-align: center;
+
+    header {
+      font-size: 8.75rem;
+      font-weight: 600;
+
+      background: url('/icons/levelup.svg') no-repeat center;
+      background-size: contain;
+      color: ${props => props.theme.colors.primary.normal};
+    }
+
+    strong {
+      margin-top: 0.25rem;
+
+      font-size: 2.25rem;
+      color: ${props => props.theme.colors.text.title};
+    }
+
+    button {
+      position: absolute;
+      right: 0.5rem;
+      top: 0.5rem;
+
+      border: none;
+      background: transparent;
+
+      font-size: 0px;
+    }
   }
 
-  strong {
-    margin-top: 0.25rem;
+  footer {
+    width: 100%;
+    padding: 1.8rem 4rem;
 
-    font-size: 2.25rem;
-    color: ${props => props.theme.colors.text.normal};
-  }
+    border-top: 1px solid ${props => props.theme.colors.background.dark};
 
-  button {
-    position: absolute;
-    right: 0.5rem;
-    top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    border: none;
-    background: transparent;
+    a {
+      font-weight: 700;
+      color: ${props => props.theme.colors.primary.lighter};
 
-    font-size: 0px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
   }
 `

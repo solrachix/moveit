@@ -76,7 +76,7 @@ export const Container = styled.div`
     align-items: center;
 
     button {
-      width: 40%;
+      width: 36%;
       background: transparent;
       border: none;
 
@@ -100,7 +100,8 @@ export const Container = styled.div`
 
     display: flex;
 
-    .logo {
+    .logo,
+    .bottomButtons {
       display: none;
     }
 

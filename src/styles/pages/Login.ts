@@ -95,42 +95,51 @@ export const Form = styled.form`
       width: 100%;
       height: 70px;
 
+      border: none;
+      border-radius: 5px;
+      background: linear-gradient(
+        90deg,
+        ${props => props.theme.colors.primary.dark},
+        ${props => props.theme.colors.primary.normal}
+      );
+
       display: flex;
-      input {
-        flex: 8;
-        width: 100%;
-        height: 100%;
-        padding: 1rem;
 
-        background: linear-gradient(
-          90deg,
-          ${props => props.theme.colors.primary.dark},
-          ${props => props.theme.colors.primary.normal}
-        );
-        border-radius: 5px 0 0 5px;
-        border: none;
-
-        font-weight: 400;
-        &::placeholder {
-          color: ${props => props.theme.colors.text.highlight};
-        }
+      &:hover {
+        filter: opacity(0.8);
       }
-      button {
-        flex: 2;
+
+      div {
         width: 100%;
         height: 100%;
 
-        background: ${props => props.theme.colors.green};
+        &:nth-of-type(1) {
+          flex: 8;
+          padding: 1rem;
 
-        border-radius: 0 5px 5px 0;
-        border: none;
+          background: transparent;
+          border-radius: 5px 0 0 5px;
+          border: none;
 
-        img {
-          width: 1.4rem;
+          font-size: 1.4rem;
+          font-weight: 600;
         }
 
-        &:hover {
-          opacity: 0.9;
+        &:nth-of-type(2) {
+          flex: 2;
+
+          background: ${props => props.theme.colors.green};
+
+          border-radius: 0 5px 5px 0;
+          border: none;
+
+          img {
+            width: 1.4rem;
+          }
+
+          &:hover {
+            opacity: 0.9;
+          }
         }
       }
     }

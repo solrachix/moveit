@@ -17,9 +17,10 @@ const App: React.FC = () => {
   useEffect(() => {
     NavBar.set(true)
   }, [])
+
   return (
     <Container>
-      <SEO title="Inicio" />
+      <SEO title="Dashboard" />
 
       <ExperienceBar />
 

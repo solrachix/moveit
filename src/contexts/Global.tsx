@@ -32,7 +32,7 @@ interface GlobalContextData {
 const GlobalContext = createContext<GlobalContextData>({} as GlobalContextData)
 
 const privateRoutes = ['/dashboard', '/leaderboard']
-const publicRoutes = ['/test', '/login']
+const publicRoutes = ['/login']
 
 export const GlobalProvider: React.FC = ({ children }) => {
   const router = useRouter()
@@ -58,6 +58,8 @@ export const GlobalProvider: React.FC = ({ children }) => {
     if (publicRoutes.includes(router.pathname) && session) {
       router.push('/dashboard')
       setUser(session.user)
+
+      a(session.user)
     } else if (privateRoutes.includes(router.pathname) && !session) {
       setEnableNavBar(false)
       router.push('/')
@@ -65,12 +67,17 @@ export const GlobalProvider: React.FC = ({ children }) => {
     }
   }, [router.pathname, session])
 
+  useEffect(() => {
+    console.log(loading)
+  }, [loading])
+
   return (
     <GlobalContext.Provider value={{ user, NavBar, handleThemeChanges }}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         {enableNavBar && <SideBar />}
         {!loading && children}
+        {/* {children} */}
       </ThemeProvider>
     </GlobalContext.Provider>
   )
@@ -83,18 +90,22 @@ export function useGlobal(): GlobalContextData {
   return context
 }
 
-// fetch('/api/user', {
-//   method: 'POST',
-//   headers: {
-//     Accept: 'application/json',
-//     'Content-Type': 'application/json'
-//   },
-//   body: JSON.stringify({ email: session.user.email })
-// })
-//   .then(R => R.json())
-//   .then(response => {
-//     console.log(response)
-//   })
-//   .catch(error => {
-//     console.log(error)
-//   })
+function a(user: User) {
+  console.log('entrei')
+
+  fetch('/api/user', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ email: user?.email })
+  })
+    .then(R => R.json())
+    .then(response => {
+      console.log(response)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+}
