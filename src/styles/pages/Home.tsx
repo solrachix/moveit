@@ -12,9 +12,9 @@ export const Container = styled.div`
 
   .ellipse {
     position: absolute;
-    top: -1200px;
+    /* top: -1200px; */
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -60%);
     /* width: 100vw;
     height: 100vh; */
 
@@ -41,6 +41,7 @@ export const Container = styled.div`
     header {
       width: 100%;
       height: 4rem;
+      padding: 0 2rem;
 
       display: flex;
       justify-content: space-between;
@@ -61,21 +62,28 @@ export const Container = styled.div`
         }
       }
 
-      button {
+      .button {
         width: 8rem;
         height: 2.2rem;
 
-        background: ${props => props.theme.colors.background.light};
-        color: ${props => props.theme.colors.text.normal};
+        /* background: ${props => props.theme.colors.background.light};
+        color: ${props => props.theme.colors.text.normal}; */
+        background: ${props => rgba(props.theme.colors.primary.normal, 1)};
+        color: ${props => props.theme.colors.white};
         border-radius: 10px;
         border: none;
 
         font-weight: 700;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
 
     section {
       width: 100%;
+      padding: 1rem;
 
       color: ${props => props.theme.colors.white};
 
@@ -109,13 +117,14 @@ export const Container = styled.div`
         }
 
         button {
-          width: 12rem;
-          height: 2.4rem;
+          width: 14rem;
+          height: 3rem;
           margin-top: 1.2rem;
 
-          background: ${props => props.theme.colors.background.light};
-          color: ${props => props.theme.colors.text.normal};
-          border-radius: 16px;
+          background: ${props => rgba(props.theme.colors.primary.normal, 1)};
+          color: ${props => props.theme.colors.white};
+          /* border: 2px solid ${props => props.theme.colors.primary.dark}; */
+          border-radius: 10px;
           border: none;
 
           font-weight: 600;
@@ -125,17 +134,20 @@ export const Container = styled.div`
 
         .dashboard-full {
           width: 100%;
-          height: 90vh;
-          margin-top: -6%;
+          height: 50vw;
+          transform: translateY(-14%);
+          /* margin-top: -6%; */
 
           filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.3));
           background: url('/images/dashboard-full.svg') no-repeat center;
           background-size: contain;
 
+          z-index: -1;
+
           &:after {
             content: '';
             position: absolute;
-            right: 0%;
+            right: -1%;
             /* bottom: 0; */
             width: 50%;
             height: 50vh;
@@ -165,15 +177,19 @@ export const Container = styled.div`
 
         .technologies {
           width: 100%;
+          max-width: 1100px;
+          max-height: 10rem;
 
-          display: flex;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: 100%;
           justify-content: center;
           align-items: center;
           gap: 3rem;
 
           img {
-            width: 15rem;
-            height: 10rem;
+            width: 100%;
+            height: 100%;
             margin-top: 2rem;
 
             opacity: 0.4;
@@ -186,7 +202,7 @@ export const Container = styled.div`
           margin-top: 6rem;
 
           display: flex;
-          flex-wrap: word-wrap;
+          flex-flow: wrap;
           justify-content: center;
           align-items: start;
           gap: 2.5em;
@@ -238,40 +254,85 @@ export const Container = styled.div`
                 align-items: center;
                 gap: 0.2rem 0.2rem;
 
-                &:after {
-                  content: '';
-                  position: absolute;
-                  /* right: 0; */
-                  /* bottom: 0; */
+                .icon {
+                  grid-area: image;
                   width: 50px;
                   height: 50px;
-                  /* margin-top: 4%; */
-                  margin-left: -3%;
-                  transform: translateY(80%);
-
-                  background: ${props =>
-                    rgba(props.theme.colors.background.light, 0.1)};
-                  backdrop-filter: blur(4px);
-                  border-radius: 50%;
-                }
-
-                img {
-                  grid-area: image;
-                  width: 70%;
                   /* margin: auto; */
                   padding: 0.6rem;
 
                   border-radius: 50%;
+
+                  /* filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.3)); */
+                  /* background: url('/images/dashboard-full.svg') no-repeat center; */
+                  background-repeat: no-repeat;
+                  background-size: contain;
+                  background-position: center center;
+
                   &.purple {
-                    background: ${props => props.theme.colors.purple};
+                    background-color: ${props => props.theme.colors.purple};
+
+                    &:before {
+                      background: linear-gradient(
+                        45deg,
+                        ${props =>
+                          rgba(props.theme.colors.background.light, 0.1)},
+                        ${props =>
+                          rgba(props.theme.colors.background.light, 0.1)},
+                        ${props =>
+                          rgba(props.theme.colors.background.light, 0.1)},
+                        ${props => rgba(props.theme.colors.purple, 0.6)}
+                      );
+                    }
                   }
                   &.blue {
-                    background: ${props => props.theme.colors.blue};
+                    background-color: ${props => props.theme.colors.blue};
+
+                    &:before {
+                      background: linear-gradient(
+                        45deg,
+                        ${props =>
+                          rgba(props.theme.colors.background.light, 0.1)},
+                        ${props =>
+                          rgba(props.theme.colors.background.light, 0.1)},
+                        ${props =>
+                          rgba(props.theme.colors.background.light, 0.1)},
+                        ${props => rgba(props.theme.colors.blue, 0.6)}
+                      );
+                    }
                   }
                   &.green {
-                    background: ${props => props.theme.colors.green};
+                    background-color: ${props => props.theme.colors.green};
+
+                    &:before {
+                      background: linear-gradient(
+                        45deg,
+                        ${props =>
+                          rgba(props.theme.colors.background.light, 0.1)},
+                        ${props =>
+                          rgba(props.theme.colors.background.light, 0.1)},
+                        ${props =>
+                          rgba(props.theme.colors.background.light, 0.1)},
+                        ${props => rgba(props.theme.colors.green, 0.6)}
+                      );
+                    }
+                  }
+                  &:before {
+                    content: '';
+                    position: absolute;
+                    /* right: 0; */
+                    /* bottom: 0; */
+                    width: 50px;
+                    height: 50px;
+                    /* margin-top: 4%; */
+                    margin-left: -3%;
+                    transform: translateY(30%);
+
+                    backdrop-filter: blur(4px);
+                    border-radius: 50%;
                   }
                 }
+
                 h3 {
                   grid-area: title;
 
@@ -284,6 +345,30 @@ export const Container = styled.div`
                   font-size: 0.8rem;
                 }
               }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 720px) {
+    .ellipse {
+      transform: translate(-50%, -72%);
+    }
+    main {
+      section {
+        &:nth-of-type(1) {
+          .dashboard-full {
+            margin-top: 10%;
+          }
+        }
+
+        &:nth-of-type(2) {
+          .benefits {
+            & > div,
+            & > img {
+              width: 100%;
             }
           }
         }

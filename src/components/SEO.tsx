@@ -19,7 +19,9 @@ export default function SEO({
 }: SEOProps) {
   const pageTitle = `${title} ${!shouldExcludeTitleSuffix && '| move.it'}`
   const pageImage = image
-    ? `${process.env.NEXT_PUBLIC_SITE_URL}/${image}`
+    ? image.startsWith('/')
+      ? `${process.env.NEXT_PUBLIC_SITE_URL}${image}`
+      : image
     : null
 
   return (
