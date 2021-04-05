@@ -1,0 +1,9 @@
+{
+  "project_name": "Moveit",
+  "type": "web",
+  
+  "template_url": "./public/imaged/dashboard-full.svg",
+  "logo_url": "./public/images/logo-full.svg",
+
+  "web": "./"
+}
